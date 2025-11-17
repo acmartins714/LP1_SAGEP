@@ -15,7 +15,7 @@ public class Diocese {
     public Diocese() {
     }
 
-    public Diocese(int id, String CNPJ, String nome, String responsavel, String titulo, Endereco endereco, String telefone, String email, String site) {
+    public Diocese(int id, String Cnpj, String nome, String responsavel, String titulo, Endereco endereco, String telefone, String email, String site) {
         Id = id;
         this.Cnpj = Cnpj;
         this.nome = nome;
