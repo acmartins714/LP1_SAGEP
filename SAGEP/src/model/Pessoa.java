@@ -163,4 +163,25 @@ public class Pessoa {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                ", numeroCertNasc='" + numeroCertNasc + '\'' +
+                ", cidadeNasc='" + cidadeNasc + '\'' +
+                ", ufNasc='" + ufNasc + '\'' +
+                ", pai=" + pai.toString() +
+                ", mae=" + mae.toString() +
+                ", endereco=" + endereco.toString() +
+                ", paisCasadosIgreja=" + paisCasadosIgreja +
+                ", paroquiaCasamento=" + paroquiaCasamento.toString() +
+                ", casamentoCivil=" + casamentoCivil +
+                ", telefone='" + telefone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
 }

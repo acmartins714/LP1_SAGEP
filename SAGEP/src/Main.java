@@ -159,8 +159,14 @@ public class Main {
             System.out.println(" - telefone: " + pastoralLista.getResponsavel().getTelefone());
             System.out.println(" - e-mail: " + pastoralLista.getResponsavel().getEmail());
         }
-        
-        
 
+        Endereco endDizimista = new Endereco(2, "Rua Adália Suassuna Barreto", "s/n", "", "Pedro Gondim", "João Pessoa", "PB", "58033430","", TIPOENDERECO.COMERCIAL);
+        Pessoa pdPai = new Pessoa(1, "A Gaiao","47491462468",LocalDate.of(1965, 8, 28),"12345678","João Pessoa","PB",endDizimista,true,paroquia,true,"(83) 9999-9999","chico@maria.com.br");
+        Pessoa pdMae = new Pessoa(2, "M. N. Gaião","47491462468",LocalDate.of(1965, 8, 28),"12345678","João Pessoa","PB",endDizimista,true,paroquia,true,"(83) 9999-9999","chico@maria.com.br");
+        Dizimista dizimista = new Dizimista(1, "Walkiria Gaião","47491462468",LocalDate.of(1965, 8, 28),"12345678","João Pessoa","PB",endDizimista,true,paroquia,true,"(83) 9999-9999","chico@maria.com.br", true, 125.50);
+        dizimista.setPai(ppPai);
+        dizimista.setMae(ppMae);
+
+        dizimista.geraRecibo(dizimista);
     }
 }
