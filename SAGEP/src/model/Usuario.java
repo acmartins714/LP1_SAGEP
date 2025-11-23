@@ -1,11 +1,12 @@
 package model;
 
+import controller.UsuarioController;
 import enuns.GRUPO;
 import enuns.PERFIL;
 
 public class Usuario {
     private int id;
-    private String login ;
+    private String login;
     private String senha;
     private String nomeCompleto;
     private GRUPO grupo;
@@ -73,20 +74,10 @@ public class Usuario {
         this.perfil = perfil;
     }
 
-    public boolean realizarLogin(String login, String senha) {
-        return ((this.login.equals(login)) && (this.senha.equals(senha)));
-    }
-
+    // Modificação realizada para evitar a exibição da senha do usuário
     @Override
     public String toString() {
-        return
-                "model.Usuario{" +
-                        "id=" + id +
-                        ", login=" + login +
-                        ", senha=*****" +
-                        ", Nome Completo=" + nomeCompleto +
-                        ", grupo=" + getGrupo() +
-                        ", perfil=" + getPerfil() +
-                        '}';
+        return "Não é possível usar este método para exibir os dados do usuário. Para isto use o método usuarioToString do controlador!";
     }
+
 }

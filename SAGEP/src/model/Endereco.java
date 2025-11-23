@@ -33,7 +33,6 @@ public class Endereco {
     }
 
     // getters and setters
-
     public int getId() {
         return id;
     }
@@ -112,6 +111,25 @@ public class Endereco {
 
     public void setTipoEndereco(TIPOENDERECO tipoEndereco) {
         this.tipoEndereco = tipoEndereco;
+    }
+
+    // Metods
+
+
+    @Override
+    public String toString() {
+        return "Endereco{" +
+                "id=" + id +
+                ", rua='" + rua + '\'' +
+                ", numero='" + numero + '\'' +
+                ", complemento='" + complemento + '\'' +
+                ", bairro='" + bairro + '\'' +
+                ", cidade='" + cidade + '\'' +
+                ", uf='" + uf + '\'' +
+                ", cep='" + cep + '\'' +
+                ", observacao='" + observacao + '\'' +
+                ", tipoEndereco=" + tipoEndereco +
+                '}';
     }
 
 }

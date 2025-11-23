@@ -29,4 +29,12 @@ public class UsuarioController {
         usuarioService.deletarUsuarioLogin(login);
     }
 
+    public boolean realizarLogin(Usuario usuario, String login, String senha) {
+        return usuarioService.realizarLogin(usuario, login, senha);
+    }
+
+    public String usuarioToString(Usuario usuario) {
+        return usuarioService.usuarioToString(usuario);
+    }
+
 }

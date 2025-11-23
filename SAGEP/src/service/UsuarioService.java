@@ -9,10 +9,10 @@ public class UsuarioService {
 
     private List<Usuario> usuarios = new ArrayList<>();
 
+    //Metods
     public void cadastrarUsuario(Usuario usuario) {
         usuarios.add(usuario);
     }
-
 
     public List<Usuario> listarUsuarios() {
         return usuarios;
@@ -52,5 +52,24 @@ public class UsuarioService {
             System.out.println("ERRO: Usuário não encontrado!");
         }
     }
+
+    public boolean realizarLogin(Usuario usuario, String login, String senha) {
+        return ((usuario.getLogin().equals(login)) && (usuario.getSenha().equals(senha)));
+    }
+
+    public String usuarioToString(Usuario usuario) {
+        return
+                "model.Usuario{" +
+                        "id=" + usuario.getId() +
+                        ", login=" + usuario.getLogin() +
+                        ", senha=*****" +
+                        ", Nome Completo=" + usuario.getNomeCompleto() +
+                        ", grupo=" + usuario.getGrupo().getDescricao() +
+                        ", perfil=" + usuario.getPerfil().getDescricao() +
+                        '}';
+    }
+
+
+
 
 }

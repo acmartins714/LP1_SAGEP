@@ -1,15 +1,10 @@
-import controller.DioceseController;
-import controller.EnderecoController;
-import controller.ParoquiaController;
-import controller.UsuarioController;
+import controller.*;
 import enuns.GRUPO;
 import enuns.PERFIL;
 import enuns.TIPOENDERECO;
-import model.Diocese;
-import model.Endereco;
-import model.Paroquia;
-import model.Usuario;
+import model.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -25,6 +20,12 @@ public class Main {
         Usuario usuario2 = new Usuario(2, "alexandre", "12345678", "Alexandre Martins", GRUPO.RUA, PERFIL.USUARIO);
         uc.cadastrarUsuario(usuario2);
 
+
+        // Testando os metodos dos controllers
+        System.out.println(uc.usuarioToString(usuario1));
+        //System.out.println(uc.realizarLogin(usuario1, "admin", "admin"));
+        System.out.println(usuario1);
+
         List<Usuario> minhaLista = new ArrayList<>(uc.listarUsuarios());
         Iterator<Usuario> iter = minhaLista.iterator();
         System.out.println("--------------------------------------------------------------------------------------------------------------");
@@ -37,8 +38,8 @@ public class Main {
             System.out.println(String.format("%2d", usuarioLista.getId())  + " " +
                                String.format("%-15s", usuarioLista.getLogin()) + " " +
                                String.format("%-40s", usuarioLista.getNomeCompleto()) + " " +
-                               String.format("%-20s", (((GRUPO)usuarioLista.getGrupo()).getId() + " - " + ((GRUPO)usuarioLista.getGrupo()).getDescricao())) + " " +
-                               String.format("%-20s", (((PERFIL)usuarioLista.getPerfil()).getId() + " - " + ((PERFIL)usuarioLista.getPerfil()).getDescricao())));
+                               String.format("%-20s", ((usuarioLista.getGrupo()).getId() + " - " + (usuarioLista.getGrupo()).getDescricao())) + " " +
+                               String.format("%-20s", ((usuarioLista.getPerfil()).getId() + " - " + (usuarioLista.getPerfil()).getDescricao())));
         }
 
         // Criação e Listagem das Dioceses
@@ -47,7 +48,7 @@ public class Main {
 
         Endereco enderecoDiocese = new Endereco(1, "Praça Dom Adauto", "s/n", "Palácio do Carmo", "Centro", "João Pessoa", "PB", "58010670","Abrangência da Diocese: Capital e 35 Municipios", TIPOENDERECO.COMERCIAL);
         ec.cadastrarEndereco(enderecoDiocese);
-        Diocese diocese = new Diocese(1, "09140351001497", "Arquidiocese da Paraíba", "Dom Manoel Delson Pedreira da Cruz", "Arcebispo", enderecoDiocese, "(83) 3133-1000", "curia@arquidiocesepb.org.br", "https://arquidiocesepb.org.br/");
+        Diocese diocese = new Diocese(1, "09140351001497", "Arquidiocese de João Pessoa", "Dom Manoel Delson Pedreira da Cruz", "Arcebispo", enderecoDiocese, "(83) 3133-1000", "curia@arquidiocesepb.org.br", "https://arquidiocesepb.org.br/", "Arquidiocese da Paraíba");
         dc.cadastrarDiocese(diocese);
 
         List<Diocese> ld = new ArrayList<>(dc.listarDiocese());
@@ -109,6 +110,57 @@ public class Main {
             System.out.println("Diocese: " + paroquiaLista.getDiocese().getNome());
 
         }
+
+        // Criação e Lsitagem das pastorais
+        Endereco epp = new Endereco(2, "Rua Adália Suassuna Barreto", "s/n", "", "Pedro Gondim", "João Pessoa", "PB", "58033430","", TIPOENDERECO.COMERCIAL);
+        Pessoa ppPai = new Pessoa(1, "A Gaiao","47491462468",LocalDate.of(1965, 8, 28),"12345678","João Pessoa","PB",epp,true,paroquia,true,"(83) 9999-9999","chico@maria.com.br");
+        Pessoa ppMae = new Pessoa(2, "M. N. Gaião","47491462468",LocalDate.of(1965, 8, 28),"12345678","João Pessoa","PB",epp,true,paroquia,true,"(83) 9999-9999","chico@maria.com.br");
+        Pessoa ppFilho = new Pessoa(3, "Walkiria Gaião","47491462468",LocalDate.of(1965, 8, 28),"12345678","João Pessoa","PB",epp,true,paroquia,true,"(83) 9999-9999","chico@maria.com.br");
+        ppFilho.setPai(ppPai);
+        ppFilho.setMae(ppMae);
+
+        // Lsiatndo dados de uma Pessoa
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+        System.out.println(" Cadastro Pessoal");
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+        System.out.println("Identificador: " + String.format("%2d", ppFilho.getId()));
+        System.out.println("Nome: " + ppFilho.getNome());
+        System.out.println("e-mail: " + ppFilho.getEmail());
+        System.out.println("Telefone: " + ppFilho.getTelefone());
+        System.out.println("Filiação: ");
+        System.out.println(" - Pai: " + ppFilho.getPai().getNome());
+        System.out.println("   - telefone: " + ppFilho.getPai().getTelefone());
+        System.out.println("   - e-mail: " + ppFilho.getPai().getEmail());
+        System.out.println(" - Mãe: " + ppFilho.getMae().getNome());
+        System.out.println("   - telefone: " + ppFilho.getMae().getTelefone());
+        System.out.println("   - e-mail: " + ppFilho.getMae().getEmail());
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+
+        Pastoral pastoral1 = new Pastoral(1, "Pastoral da Catequese", ppFilho, "secretaria@igreja.org.br", "(83) 88888-8888");
+        PastoralController pastorais = new PastoralController();
+        pastorais.cadastrarpastoral(pastoral1);
+
+        List<Pastoral> lstPastoral = new ArrayList<>(pastorais.listarPastorais());
+        Iterator<Pastoral> lstPastoralIter = lstPastoral.iterator();
+        System.out.println(" ");
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+        System.out.println(" Relação das Pastorais");
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+        while (lstPastoralIter.hasNext()) {
+            Pastoral pastoralLista = lstPastoralIter.next();
+            System.out.println("Identificador: " + String.format("%2d", pastoralLista.getId()));
+            System.out.println("Nome: " + pastoralLista.getNome());
+            System.out.println("e-mail: " + pastoralLista.getEmail());
+            System.out.println("Telefone: " + pastoralLista.getTelefone());
+            System.out.println("Responsável: " + pastoralLista.getResponsavel().getNome());
+            System.out.println(" - Nome: " + pastoralLista.getResponsavel().getNome());
+            System.out.println(" - Pai: " + pastoralLista.getResponsavel().getPai().getNome());
+            System.out.println(" - Mãe: " + pastoralLista.getResponsavel().getMae().getNome());
+            System.out.println(" - telefone: " + pastoralLista.getResponsavel().getTelefone());
+            System.out.println(" - e-mail: " + pastoralLista.getResponsavel().getEmail());
+        }
+        
+        
 
     }
 }

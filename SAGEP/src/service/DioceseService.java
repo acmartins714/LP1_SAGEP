@@ -18,6 +18,7 @@ public class DioceseService {
         return dioceses;
     }
 
+    //Metods
     public void atualizarDioceseCnpj(int id, String novoCnpj) {
         for (Diocese diocese : dioceses) {
             if (diocese.getId() == id) {
@@ -123,6 +124,13 @@ public class DioceseService {
             }
             System.out.println("ERRO: Diocese não encontrada!");
         }
+    }
+
+    public String toString() {
+        return super.toString() +
+                ", model.Diocese{"+
+//                ", Arquidiocese=" + nomeArquidiocese +
+                '}';
     }
 
 }
