@@ -2,6 +2,7 @@ import controller.*;
 import enuns.GRUPO;
 import enuns.PERFIL;
 import enuns.TIPOENDERECO;
+import enuns.TIPOEVENTO;
 import model.*;
 
 import java.time.LocalDate;
@@ -168,5 +169,8 @@ public class Main {
         dizimista.setMae(ppMae);
 
         dizimista.geraRecibo(dizimista);
+
+        Evento evento = new Evento(1, TIPOEVENTO.ENCONTRO, "Encontro de Jovens com Cristo - 2025", LocalDate.of(2025, 3, 1 ), LocalDate.of(2025, 6, 30), "Sede da paróquia");
+        System.out.println(evento.toString());
     }
 }
