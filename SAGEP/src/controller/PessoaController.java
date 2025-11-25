@@ -14,7 +14,7 @@ public class PessoaController {
     private PessoaService pessoaService = new PessoaService();
 
     //Metods
-    public void cadastrarPess(Pessoa pessoa) {
+    public void cadastrarPessoa(Pessoa pessoa) {
         pessoaService.cadastrarPessoa(pessoa);
     }
 
