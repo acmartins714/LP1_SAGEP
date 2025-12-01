@@ -74,4 +74,8 @@ public class PessoaController {
         pessoaService.deletarPessoa(id);
     }
 
+    public void pessoaRelacao() {
+        pessoaService.pessoasRelacao();;
+    }
+
 }

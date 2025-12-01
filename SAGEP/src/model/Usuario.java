@@ -12,6 +12,19 @@ public class Usuario {
     private GRUPO grupo;
     private PERFIL perfil;
 
+    // Constructors
+    public Usuario() {
+    }
+
+    public Usuario(int id, String login, String senha, String nomeCompleto, GRUPO grupo, PERFIL perfil) {
+        this.id = id;
+        this.login = login;
+        this.senha = senha;
+        this.nomeCompleto = nomeCompleto;
+        this.grupo = grupo;
+        this.perfil = perfil;
+    }
+
     // getters e setters
     public int getId() {
         return id;
@@ -58,19 +71,6 @@ public class Usuario {
     }
 
     public void setPerfil(PERFIL perfil) {
-        this.perfil = perfil;
-    }
-
-    // Constructors
-    public Usuario() {
-    }
-
-    public Usuario(int id, String login, String senha, String nomeCompleto, GRUPO grupo, PERFIL perfil) {
-        this.id = id;
-        this.login = login;
-        this.senha = senha;
-        this.nomeCompleto = nomeCompleto;
-        this.grupo = grupo;
         this.perfil = perfil;
     }
 

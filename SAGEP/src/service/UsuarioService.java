@@ -3,6 +3,7 @@ package service;
 import model.Usuario;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class UsuarioService {
@@ -69,6 +70,25 @@ public class UsuarioService {
                         '}';
     }
 
+    public void usuariosRelacao() {
+
+        //List<Usuario> ListaUsuarios = new ArrayList<>(uc.listarUsuarios());
+        Iterator<Usuario> iter = usuarios.iterator();
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+        System.out.println(" Usuários da Aplicação");
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+        System.out.println("Id Login           Nome Completo                            Grupo                Perfil");
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+        while (iter.hasNext()) {
+            Usuario usuarioLista = iter.next();
+            System.out.println(String.format("%2d", usuarioLista.getId())  + " " +
+                    String.format("%-15s", usuarioLista.getLogin()) + " " +
+                    String.format("%-40s", usuarioLista.getNomeCompleto()) + " " +
+                    String.format("%-20s", ((usuarioLista.getGrupo()).getId() + " - " + (usuarioLista.getGrupo()).getDescricao())) + " " +
+                    String.format("%-20s", ((usuarioLista.getPerfil()).getId() + " - " + (usuarioLista.getPerfil()).getDescricao())));
+        }
+
+    }
 
 
 

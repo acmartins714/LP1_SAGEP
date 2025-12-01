@@ -34,4 +34,8 @@ public class PastoralController {
         pastoralService.atualizarPastoralTelefone(id, novoTelefone);
     }
 
+    public void pastoraisRelacao() {
+        pastoralService.pastoraisRelacao();
+    }
+
 }

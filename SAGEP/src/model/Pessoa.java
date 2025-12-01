@@ -123,7 +123,7 @@ public class Pessoa {
         this.endereco = endereco;
     }
 
-    public boolean isPaisCasadosIgreja() {
+    public boolean getPaisCasadosIgreja() {
         return paisCasadosIgreja;
     }
 
@@ -139,7 +139,7 @@ public class Pessoa {
         this.paroquiaCasamento = paroquiaCasamento;
     }
 
-    public boolean isCasamentoCivil() {
+    public boolean getPaisCasamentoCivil() {
         return casamentoCivil;
     }
 

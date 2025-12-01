@@ -54,4 +54,8 @@ public class DioceseController {
         dioceseService.deletarDiocese(id);
     }
 
+    public void diocesesRelacao() {
+        dioceseService.diocesesRelacao();
+    }
+
 }

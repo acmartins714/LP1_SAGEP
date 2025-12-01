@@ -29,7 +29,6 @@ public abstract class Entidade {
     }
 
     // getters and setters
-
     public int getId() {
         return id;
     }

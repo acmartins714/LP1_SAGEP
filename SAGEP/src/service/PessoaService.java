@@ -6,7 +6,9 @@ import model.Endereco;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
 
 public class PessoaService {
 
@@ -173,6 +175,55 @@ public class PessoaService {
                 return;
             }
             System.out.println("ERRO: Pessoa não encontrada!");
+        }
+    }
+
+    public void pessoasRelacao() {
+
+        Iterator<Pessoa> pessoaIter = pessoas.iterator();
+
+        System.out.println(" ");
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+        System.out.println(" Cadastro Pessoal");
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+
+        while (pessoaIter.hasNext()) {
+
+            Pessoa pessoaLista = pessoaIter.next();
+
+            System.out.println("Identificador: " + String.format("%2d", pessoaLista.getId()));
+            System.out.println("Nome: " + pessoaLista.getNome());
+            System.out.println("Rua: " + pessoaLista.getEndereco().getRua() + " Nº " + pessoaLista.getEndereco().getNumero());
+            System.out.println("Complemento: " + pessoaLista.getEndereco().getComplemento());
+            System.out.println("Bairro: " + pessoaLista.getEndereco().getBairro() + " Cidade-UF: " + pessoaLista.getEndereco().getCidade() + "-" + pessoaLista.getEndereco().getUf());
+            System.out.println("C.E.P.: " + pessoaLista.getEndereco().getCep());
+            System.out.println("Observações: " + pessoaLista.getEndereco().getObservacao());
+            System.out.println("e-mail: " + pessoaLista.getEmail());
+            System.out.println("Telefone: " + pessoaLista.getTelefone());
+            System.out.println("Filiação: ");
+
+            if (pessoaLista.getPai() != null) {
+                System.out.println(" - Pai: " + pessoaLista.getPai().getNome());
+                System.out.println("   - telefone: " + pessoaLista.getPai().getTelefone());
+                System.out.println("   - e-mail: " + pessoaLista.getPai().getEmail());
+            } else {
+                System.out.println(" - Pai: ");
+                System.out.println("   - telefone: ");
+                System.out.println("   - e-mail: ");
+            }
+
+            if (pessoaLista.getMae() != null) {
+                System.out.println(" - Mãe: " + pessoaLista.getMae().getNome());
+                System.out.println("   - telefone: " + pessoaLista.getMae().getTelefone());
+                System.out.println("   - e-mail: " + pessoaLista.getMae().getEmail());
+            } else {
+                System.out.println(" - Mãe: ");
+                System.out.println("   - telefone: ");
+                System.out.println("   - e-mail: ");
+            }
+
+            System.out.println("--------------------------------------------------------------------------------------------------------------");
+
         }
     }
 

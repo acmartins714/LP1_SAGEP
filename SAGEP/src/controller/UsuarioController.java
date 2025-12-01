@@ -37,4 +37,8 @@ public class UsuarioController {
         return usuarioService.usuarioToString(usuario);
     }
 
+    public void usuariosRelacao() {
+        usuarioService.usuariosRelacao();
+    }
+
 }

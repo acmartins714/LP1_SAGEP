@@ -31,6 +31,10 @@ public class ParoquiaController {
         paroquiaService.atualizarParoquiaResponsavel(id, novoResponsavel);
     }
 
+    public void atualizarParoquiaTitulo(int id, String novoTitulo) {
+        paroquiaService.atualizarParoquiaTitulo(id, novoTitulo);
+    }
+
     public void atualizarParoquiaEndereco(int id, Endereco novoEndereco) {
         paroquiaService.atualizarParoquiaEndereco(id, novoEndereco);
     }
@@ -53,6 +57,10 @@ public class ParoquiaController {
 
     public void deletarParoquia(int id) {
         paroquiaService.deletarParoquia(id);
+    }
+
+    public void paroquiasRelacao() {
+        paroquiaService.paroquiasRelacao();
     }
 
 }

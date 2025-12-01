@@ -11,7 +11,7 @@ public class EventoController {
 
     private EventoService eventoService = new EventoService();
 
-    public void cadastrarevento(Evento evento) {
+    public void cadastrarEvento(Evento evento) {
         eventoService.cadastrarEvento(evento);
     }
 
@@ -37,6 +37,18 @@ public class EventoController {
 
     public void atualizarEventoLocal(int id, String novoLocal) {
         eventoService.atualizarEventoLocal(id, novoLocal);
+    }
+
+    public void atualizarNumeroMaximoInscricoesl(int id, int novoNumeroMaximoInscricoes) {
+        eventoService.atualizarEventoNumeroMaximoInscricoes(id, novoNumeroMaximoInscricoes);
+    }
+
+    public void atualizarValorInscricao(int id, int novoValorInscricao) {
+        eventoService.atualizarEventoValorInscricao(id, novoValorInscricao);
+    }
+
+    public void eventosRelacao() {
+        eventoService.eventosRelacao();
     }
 
 }

@@ -11,18 +11,22 @@ public class Evento {
     private LocalDate dataInicial;
     private LocalDate dataFinal;
     private String local;
+    private int numeroMaximoInscricoes;
+    private double valorInscricao;
 
     // Contructors
     public Evento() {
     }
 
-    public Evento(int id, TIPOEVENTO tipoEvento, String nomeEvento, LocalDate dataInicial, LocalDate dataFinal, String local) {
+    public Evento(int id, TIPOEVENTO tipoEvento, String nomeEvento, LocalDate dataInicial, LocalDate dataFinal, String local, int numeroMaximoInscricoes, double valorInscricao) {
         this.id = id;
         this.tipoEvento = tipoEvento;
         this.nomeEvento = nomeEvento;
         this.dataInicial = dataInicial;
         this.dataFinal = dataFinal;
         this.local = local;
+        this.numeroMaximoInscricoes = numeroMaximoInscricoes;
+        this.valorInscricao = valorInscricao;
     }
 
     // Getters and Setters
@@ -74,16 +78,33 @@ public class Evento {
         this.local = local;
     }
 
-    // Metods
+    public int getNumeroMaximoInscricoes() {
+        return numeroMaximoInscricoes;
+    }
+
+    public void setNumeroMaximoInscricoes(int numeroMaximoInscricoes) {
+        this.numeroMaximoInscricoes = numeroMaximoInscricoes;
+    }
+
+    public double getValorInscricao() {
+        return valorInscricao;
+    }
+
+    public void setValorInscricao(double valorInscricao) {
+        this.valorInscricao = valorInscricao;
+    }
+
     @Override
     public String toString() {
-        return "Eventos{" +
+        return "Evento{" +
                 "id=" + id +
+                ", tipoEvento=" + tipoEvento +
                 ", nomeEvento='" + nomeEvento + '\'' +
                 ", dataInicial=" + dataInicial +
                 ", dataFinal=" + dataFinal +
                 ", local='" + local + '\'' +
+                ", numeroMaximoInscricoes=" + numeroMaximoInscricoes +
+                ", valorInscricao=" + valorInscricao +
                 '}';
     }
-
 }

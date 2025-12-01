@@ -4,6 +4,7 @@ import model.Diocese;
 import model.Endereco;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class DioceseService {
@@ -131,6 +132,34 @@ public class DioceseService {
                 ", model.Diocese{"+
 //                ", Arquidiocese=" + nomeArquidiocese +
                 '}';
+    }
+
+    public void diocesesRelacao() {
+
+        Iterator<Diocese> ldIter = dioceses.iterator();
+        System.out.println(" ");
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+        System.out.println(" Diocese de João Pessoa");
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+        while (ldIter.hasNext()) {
+            Diocese dioceseLista = ldIter.next();
+            System.out.println("Identificador: " + String.format("%2d", dioceseLista.getId()));
+            System.out.println("C.N.P.J.: " + String.format("%s.%s.%s/%s-%s",  dioceseLista.getCnpj().substring(0,2),dioceseLista.getCnpj().substring(2,5),dioceseLista.getCnpj().substring(5,8),dioceseLista.getCnpj().substring(8,12),dioceseLista.getCnpj().substring(12,14)));
+            System.out.println("Nome: " + dioceseLista.getNome());
+            System.out.println("Responsável: " + dioceseLista.getResponsavel());
+            System.out.println("Título: " + dioceseLista.getTitulo());
+            System.out.println("Tipo do Endereço: " + dioceseLista.getEndereco().getTipoEndereco().getId() + "-" + dioceseLista.getEndereco().getTipoEndereco().getDescricao());
+            System.out.println("Endereço: " + dioceseLista.getEndereco().getRua() + ", " + dioceseLista.getEndereco().getNumero());
+            System.out.println("Complemento: " + dioceseLista.getEndereco().getComplemento());
+            System.out.println("Bairro: " + dioceseLista.getEndereco().getBairro());
+            System.out.println("Cidade: " + dioceseLista.getEndereco().getCidade() + "-" + dioceseLista.getEndereco().getUf());
+            System.out.println("C.E.P.: " + String.format("%s-%s", dioceseLista.getEndereco().getCep().substring(0,5), dioceseLista.getEndereco().getCep().substring(5,8)));
+            System.out.println("Observações: " + dioceseLista.getEndereco().getObservacao());
+            System.out.println("Telefone: " + dioceseLista.getTelefone());
+            System.out.println("e-mail: " + dioceseLista.getEmail());
+            System.out.println("site: " + dioceseLista.getSite());
+
+        }
     }
 
 }
