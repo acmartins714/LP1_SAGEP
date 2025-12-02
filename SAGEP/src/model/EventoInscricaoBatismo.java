@@ -46,7 +46,7 @@ public class EventoInscricaoBatismo {
         this.batizando = batizando;
     }
 
-    public boolean isPagamentoRealizado() {
+    public boolean getPagamentoRealizado() {
         return pagamentoRealizado;
     }
 

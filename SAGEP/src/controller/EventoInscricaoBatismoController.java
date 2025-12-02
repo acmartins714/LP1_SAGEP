@@ -33,4 +33,8 @@ public class EventoInscricaoBatismoController {
         eventoInscricaoBatismoService.filaReservaRelacao();
     }
 
+    public void fichaInscricaoBatismo() {
+        eventoInscricaoBatismoService.fichaInscricaoBatismo();
+    }
+
 }

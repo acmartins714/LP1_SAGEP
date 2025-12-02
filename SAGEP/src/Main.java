@@ -462,7 +462,7 @@ public class Main {
                 "Sion", // Bairro
                 "Belo Horizonte", // Cidade
                 "MG", // UF
-                "30310-080", // CEP
+                "30310080", // CEP
                 "Criança em período de adaptação", // Observação
                 TIPOENDERECO.RESIDENCIAL); // Tipo do endereço
 
@@ -679,15 +679,11 @@ public class Main {
         eventoInscricaoBatismoController.cadastrarEventoInscricaoBatismo(eventoInscricaoBatismo04);
         eventoInscricaoBatismoController.cadastrarEventoInscricaoBatismo(eventoInscricaoBatismo05);
 
-//        System.out.println(" 7 - Relação dos Batizandos (falta)");
-//        System.out.println(" 8 - Exibir ficha de inscrição do Batizando (falta)");
-//        System.out.println(" 9 - Listar fila de espera em Eventos (falta)");
-
-
         // dizimista.geraRecibo(dizimista);
+        // Metodo criado e será disponíbilizado em
+        // implementação futura
 
         // Opções de menu
-
         Scanner sc = new Scanner(System.in);
         Scanner sc2 = new Scanner(System.in);
 
@@ -705,9 +701,9 @@ public class Main {
             System.out.println(" 4 - Exibir Dados das Pessoas da Comunidade");
             System.out.println(" 5 - Exibir Dados das Pastorias");
             System.out.println(" 6 - Exibir Dados das Dizimistas");
-            System.out.println(" 7 - Relação dos Batizandos (falta)");
-            System.out.println(" 8 - Exibir ficha de inscrição do Batizando (falta)");
-            System.out.println(" 9 - Listar fila de espera em Eventos (falta)");
+            System.out.println(" 7 - Relação dos Batizandos");
+            System.out.println(" 8 - Exibir ficha de inscrição do Batizando");
+            System.out.println(" 9 - Listar fila de espera em Eventos");
             System.out.println("10 - Relação dos Usuários da Aplicação");
             System.out.println("11 - Sair");
             System.out.println("------------------------------------------------------");
@@ -741,6 +737,9 @@ public class Main {
                             break;
                         case 7: // Exibir dados das Pastorais
                             eventoInscricaoBatismoController.eventoInscricaoBatismoRelacao();;
+                            break;
+                        case 8: // Exibir dados das Pastorais
+                            eventoInscricaoBatismoController.fichaInscricaoBatismo();;
                             break;
                         case 9: // Exibir dados das Pastorais
                             eventoInscricaoBatismoController.filaReservaRelacao();
