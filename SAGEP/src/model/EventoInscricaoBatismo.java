@@ -1,46 +1,49 @@
 package model;
 
-public class EventoInscricaoBatismo extends EventoInscricao {
+import enuns.TIPOEVENTO;
+
+import java.time.LocalDate;
+
+public class EventoInscricaoBatismo {
+    private int id;
+    private Evento evento;
     private PessoaBatizando batizando;
-    private Pessoa padrinho;
-    private Pessoa madrinha;
     private boolean pagamentoRealizado;
 
     // Constructors
     public EventoInscricaoBatismo() {
     }
 
-    public EventoInscricaoBatismo(Integer id, Evento evento, PessoaBatizando batizando, Pessoa padrinho, Pessoa madrinha, boolean pagamentoRealizado) {
-        super(id, evento);
+    public EventoInscricaoBatismo(int id, Evento evento, PessoaBatizando batizando, boolean pagamentoRealizado) {
+        this.id = id;
+        this.evento = evento;
         this.batizando = batizando;
-        this.padrinho = padrinho;
-        this.madrinha = madrinha;
         this.pagamentoRealizado = pagamentoRealizado;
     }
 
     // Getters and Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
+
     public PessoaBatizando getBatizando() {
         return batizando;
     }
 
     public void setBatizando(PessoaBatizando batizando) {
         this.batizando = batizando;
-    }
-
-    public Pessoa getPadrinho() {
-        return padrinho;
-    }
-
-    public void setPadrinho(Pessoa padrinho) {
-        this.padrinho = padrinho;
-    }
-
-    public Pessoa getMadrinha() {
-        return madrinha;
-    }
-
-    public void setMadrinha(Pessoa madrinha) {
-        this.madrinha = madrinha;
     }
 
     public boolean isPagamentoRealizado() {
@@ -56,12 +59,9 @@ public class EventoInscricaoBatismo extends EventoInscricao {
     @Override
     public String toString() {
         return "EventoInscricaoBatismo{" +
-                "batizando=" + batizando +
-                ", padrinho=" + padrinho +
-                ", madrinha=" + madrinha +
+                "evento=" + evento +
+                ", batizando=" + batizando +
                 ", pagamentoRealizado=" + pagamentoRealizado +
-                ", id=" + id +
-                ", evento=" + evento +
                 '}';
     }
 

@@ -3,10 +3,12 @@ package service;
 import enuns.TIPOFILARESERVA;
 import model.Evento;
 import model.EventoFilaReserva;
+import model.EventoInscricaoBatismo;
 import model.Pessoa;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class EventoFilaReservaService {

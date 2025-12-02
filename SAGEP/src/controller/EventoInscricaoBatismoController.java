@@ -21,16 +21,16 @@ public class EventoInscricaoBatismoController {
         eventoInscricaoBatismoService.atualizarEventoInscricaoBatismoBatizando(id, novoBatizando);
     }
 
-    public void atualizarEventoInscricaoBatismoPadrinho(int id, Pessoa novoPadrinho) {
-        eventoInscricaoBatismoService.atualizarEventoInscricaoBatismoPadrinho(id, novoPadrinho);
-    }
-
-    public void atualizarEventoInscricaoBatismoMadrinha(int id, Pessoa novaMadrinha) {
-        eventoInscricaoBatismoService.atualizarEventoInscricaoBatismoMadrinha(id, novaMadrinha);
-    }
-
     public void deletarEventoInscricaoBatismo(int id) {
         eventoInscricaoBatismoService.deletarEventoInscricaoBatismo(id);
+    }
+
+    public void eventoInscricaoBatismoRelacao() {
+        eventoInscricaoBatismoService.batizandoInscricaoRelacao();
+    }
+
+    public void filaReservaRelacao() {
+        eventoInscricaoBatismoService.filaReservaRelacao();
     }
 
 }
